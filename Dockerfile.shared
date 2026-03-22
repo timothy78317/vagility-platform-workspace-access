@@ -1,0 +1,23 @@
+# ============================================
+# Workspace Access - Shared Volume Dockerfile
+# Uses design system package from shared Docker volume
+# ============================================
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY vagility-platform-workspace-access/package*.json ./
+
+# Copy source code 
+COPY vagility-platform-workspace-access/. .
+
+# Note: The design system .tgz will be copied from the shared volume
+# at runtime via the docker-compose command, then npm install runs
+
+# Expose port 5013
+EXPOSE 5013
+
+# Default command (overridden by docker-compose)
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5013"]

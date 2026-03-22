@@ -1,0 +1,5 @@
+/* 
+  Workspace Access Isolated CSS 
+  We rely on the host's design system styles to prevent variable collisions.
+  Emptying this file solves the 'Misconfigured Layout' issue in the platform shell.
+*/
